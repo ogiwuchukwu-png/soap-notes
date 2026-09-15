@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soap Notes — Lather in luxury. Keep the questions.</title>
+<meta name="description" content="Handcrafted soap wrapped in questions worth sitting with. Shop the Founding Set and the S.O.A.P. Series.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.184.0/build/three.module.js"
+  },
+  "integrity": {
+    "https://unpkg.com/three@0.184.0/build/three.module.js": "sha384-8FCZ1eVO6it4+pbec2aDtnTrwjWXZLJRC+MAGCIPDgsYnUrl/E0A2YlF8ioMKI/J",
+    "https://unpkg.com/three@0.184.0/build/three.core.js": "sha384-dw2ooPewaEIrAgl6oFDBmmBWCE9oW9LxRGcfwZ0hLvEprzo202wXl7vCYHRlSnOT"
+  }
+}
+</script>
+<style>
+  :root {
+    --sn-paper: #d9cba3;
+    --sn-card: #e3d6b4;
+    --sn-cream: #ede4cc;
+    --sn-ink: #211d19;
+    --sn-soft: #4f483c;
+    --sn-accent: #6e2a2a;
+    --sn-accent-pressed: #4d1c1c;
+    --sn-gold: #c9a06d;
+    --sn-cream-on-dark: #ddd3bd;
+    --sn-muted-on-dark: #9a8f7a;
+    --sn-rule: rgba(33, 29, 25, 0.2);
+    --sn-hair: rgba(33, 29, 25, 0.14);
+    --sn-edge: clamp(20px, 5vw, 64px);
+    --sn-max: 1200px;
+    --sn-radius: 2px;
+    --sn-shadow: 0 -3px 10px rgba(33, 29, 25, 0.12);
+    --sn-font-heading: "Lora", Georgia, serif;
+    --sn-font-body: "Karla", system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--sn-paper);
+    color: var(--sn-ink);
+    font-family: var(--sn-font-body);
+    font-size: 16px;
+    line-height: 1.62;
+    text-wrap: pretty;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, dl, dd, figure, p { margin: 0; }
+  a { color: var(--sn-accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--sn-accent-pressed); }
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--sn-accent); outline-offset: 2px; }
+  ::selection { background: rgba(110, 42, 42, 0.22); }
+  img { display: block; max-width: 100%; }
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+  [data-reveal="in"] { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    [data-reveal] { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* — primitives — */
+  .btn {
+    font-family: var(--sn-font-body); font-size: 13px; font-weight: 500;
+    letter-spacing: 0.07em; text-transform: uppercase; color: var(--sn-accent);
+    background: transparent; border: 1px solid var(--sn-accent); border-radius: var(--sn-radius);
+    padding: 13px 24px; cursor: pointer; text-decoration: none; display: inline-block; line-height: 1.2;
+    transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .btn:hover { background: rgba(110, 42, 42, 0.09); }
+  .btn:active { border-color: var(--sn-accent-pressed); color: var(--sn-accent-pressed); }
+  .btn-secondary { border-color: rgba(33, 29, 25, 0.3); color: var(--sn-ink); }
+  .btn-light { color: var(--sn-cream); border-color: rgba(237, 228, 204, 0.55); }
+  .btn-light:hover { background: rgba(237, 228, 204, 0.12); border-color: var(--sn-cream); }
+  .btn-card { padding: 11px 18px; font-size: 12px; }
+  .link {
+    font-family: var(--sn-font-body); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--sn-soft); text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .link:hover { color: var(--sn-accent); border-bottom-color: var(--sn-accent); }
+  .kicker {
+    display: block; font-family: var(--sn-font-body); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--sn-accent);
+  }
+  .kicker-on-dark { color: var(--sn-gold); }
+  .plate {
+    filter: sepia(0.22) saturate(0.82) contrast(1.05); box-sizing: border-box;
+    border: 6px solid var(--sn-card); outline: 1px solid var(--sn-rule); margin: 0;
+  }
+  .input {
+    width: 100%; min-height: 36px; padding: 6px 10px; font: inherit; font-family: var(--sn-font-body);
+    font-size: 14px; color: var(--sn-ink); caret-color: var(--sn-accent); background: transparent;
+    border: 1px solid var(--sn-rule); border-radius: var(--sn-radius);
+  }
+  .input:hover { border-color: rgba(33, 29, 25, 0.45); }
+  .input:focus-visible { border-color: var(--sn-accent); outline-offset: 0; }
+  .input::placeholder { color: rgba(33, 29, 25, 0.5); }
+  .mb-14 { margin-bottom: 14px; }
+  .mb-16 { margin-bottom: 16px; }
+  .mb-32 { margin-bottom: 32px; }
+
+  /* — nav — */
+  .nav { display: flex; align-items: baseline; gap: 26px; padding: 22px var(--sn-edge); border-bottom: 1px solid var(--sn-rule); flex-wrap: wrap; }
+  .nav-brand { font-family: var(--sn-font-heading); font-size: 19px; font-weight: 500; letter-spacing: 0.01em; color: var(--sn-accent); margin-right: auto; }
+
+  /* — hero — */
+  .hero {
+    max-width: var(--sn-max); margin: 0 auto; padding: clamp(48px, 7vw, 92px) var(--sn-edge) clamp(36px, 5vw, 64px);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(24px, 4vw, 64px); align-items: center;
+  }
+  .hero-title { font-family: var(--sn-font-heading); font-weight: 500; font-size: clamp(48px, 7vw, 86px); line-height: 1.02; letter-spacing: -0.015em; color: var(--sn-accent); margin: 0 0 0 -0.03em; }
+  .hero-subhead { font-family: var(--sn-font-heading); font-size: clamp(21px, 2.5vw, 27px); line-height: 1.38; color: var(--sn-ink); max-width: 30ch; margin: 26px 0 0; }
+  .hero-body { font-size: 16.5px; line-height: 1.72; color: var(--sn-soft); max-width: 42ch; margin: 22px 0 0; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+  .hero-stage { width: 100%; aspect-ratio: 5 / 4; min-height: 240px; }
+
+  /* — origin — */
+  .origin { border-top: 1px solid var(--sn-rule); border-bottom: 1px solid var(--sn-rule); background: var(--sn-cream); padding: clamp(52px, 7vw, 92px) var(--sn-edge); }
+  .origin-grid { max-width: var(--sn-max); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(26px, 4vw, 64px); }
+  .origin-headline { font-family: var(--sn-font-heading); font-weight: 500; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.12; color: var(--sn-accent); }
+  .origin-attribution { font-size: 14px; letter-spacing: 0.03em; color: var(--sn-soft); margin: 30px 0 0; }
+  .prose { font-size: 16.5px; line-height: 1.78; color: var(--sn-soft); text-align: justify; hyphens: auto; }
+  .prose + .prose { margin-top: 20px; }
+  .origin-quote { font-family: var(--sn-font-heading); font-size: 22px; font-style: italic; color: var(--sn-accent); margin: 22px 0 0; }
+
+  /* — founding set — */
+  .founding { max-width: var(--sn-max); margin: 0 auto; padding: clamp(52px, 7vw, 96px) var(--sn-edge) 0; }
+  .founding-heading { font-family: var(--sn-font-heading); font-weight: 500; font-size: clamp(32px, 4.4vw, 56px); line-height: 1.08; letter-spacing: -0.01em; color: var(--sn-accent); margin: 0 0 0 -0.03em; }
+  .founding-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(26px, 4vw, 64px); margin-top: 34px; }
+  .founding-lede { font-size: 16.5px; line-height: 1.75; color: var(--sn-soft); text-align: justify; hyphens: auto; }
+  .bar-list { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0 24px; margin: 0; border-top: 1px solid var(--sn-rule); }
+  .bar-list dt { font-family: var(--sn-font-heading); font-size: 15px; font-weight: 500; letter-spacing: 0.02em; color: var(--sn-accent); padding: 13px 0 0; }
+  .bar-list dd { font-size: 15px; line-height: 1.6; color: var(--sn-soft); padding: 14px 0 13px; }
+  .bar-list .ruled { border-top: 1px solid var(--sn-hair); }
+  .founding-quote { font-family: var(--sn-font-heading); font-style: italic; font-size: clamp(24px, 3vw, 32px); color: var(--sn-accent); margin: 42px 0 0; }
+
+  /* — product cards — */
+  .cards { max-width: var(--sn-max); margin: 0 auto; padding: clamp(32px, 5vw, 56px) var(--sn-edge) 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(22px, 3vw, 36px); }
+  .card { background: var(--sn-card); border: 1px solid var(--sn-rule); border-radius: var(--sn-radius); padding: 22px 24px; display: flex; flex-direction: column; }
+  .card-figure { margin: 0 0 14px; }
+  .card-stage { width: 100%; aspect-ratio: 4 / 3; min-height: 170px; }
+  .card-name { font-family: var(--sn-font-heading); font-weight: 500; font-size: 28px; line-height: 1.08; color: var(--sn-accent); }
+  .card-sub { font-size: 11.5px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sn-soft); margin: 9px 0 18px; }
+  .card-body { font-size: 14.5px; line-height: 1.7; color: var(--sn-soft); text-align: justify; hyphens: auto; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: auto; padding-top: 22px; }
+  .card-price { font-family: var(--sn-font-heading); font-size: 19px; font-feature-settings: 'tnum' 1; color: var(--sn-ink); }
+
+  /* — trio box — */
+  .trio-section { max-width: var(--sn-max); margin: 0 auto; padding: clamp(28px, 4vw, 44px) var(--sn-edge) clamp(52px, 7vw, 92px); }
+  .trio-panel { border: 1px solid var(--sn-rule); border-radius: var(--sn-radius); background: var(--sn-cream); padding: clamp(26px, 3.5vw, 44px); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(24px, 4vw, 52px); align-items: center; }
+  .trio-heading { font-family: var(--sn-font-heading); font-weight: 500; font-size: clamp(26px, 3vw, 36px); line-height: 1.14; color: var(--sn-accent); }
+  .trio-body { font-size: 15.5px; line-height: 1.75; color: var(--sn-soft); margin: 18px 0 0; max-width: 44ch; }
+  .trio-price-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 26px; }
+  .trio-price { font-family: var(--sn-font-heading); font-size: 24px; font-feature-settings: 'tnum' 1; color: var(--sn-ink); }
+  .trio-note { font-size: 13px; line-height: 1.6; color: rgba(33, 29, 25, 0.62); margin: 20px 0 0; }
+  .trio-stage { width: 100%; aspect-ratio: 4 / 3; min-height: 220px; }
+
+  /* — S.O.A.P. series — */
+  .series { background: var(--sn-ink); padding: clamp(52px, 7vw, 96px) var(--sn-edge); }
+  .series-inner { max-width: var(--sn-max); margin: 0 auto; }
+  .series-intro { max-width: 660px; }
+  .series-heading { font-family: var(--sn-font-heading); font-weight: 500; font-size: clamp(32px, 4.2vw, 52px); line-height: 1.08; letter-spacing: -0.01em; color: var(--sn-cream); margin: 0 0 0 -0.02em; }
+  .series-lead { font-size: 16.5px; line-height: 1.78; color: var(--sn-cream-on-dark); margin: 24px 0 0; }
+  .series-quote { font-family: var(--sn-font-heading); font-size: clamp(20px, 2.3vw, 25px); line-height: 1.5; color: var(--sn-cream); margin: 22px 0 0; }
+  .letters { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; margin: clamp(34px, 5vw, 52px) 0 0; background: rgba(237, 228, 204, 0.22); }
+  .letter { background: var(--sn-ink); padding: 26px 22px; }
+  .letter-glyph { font-family: var(--sn-font-heading); font-size: 44px; line-height: 1; color: var(--sn-gold); }
+  .letter-label { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sn-cream); margin-top: 12px; }
+  .series-prose { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(26px, 4vw, 52px); margin-top: clamp(30px, 4vw, 44px); }
+  .series-paragraph { font-size: 16px; line-height: 1.78; color: var(--sn-cream-on-dark); text-align: justify; hyphens: auto; }
+  .series-footer { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: clamp(30px, 4vw, 42px); }
+  .series-note { font-family: var(--sn-font-heading); font-style: italic; font-size: 16px; color: var(--sn-muted-on-dark); }
+
+  /* — value props — */
+  .props { max-width: var(--sn-max); margin: 0 auto; padding: clamp(52px, 7vw, 96px) var(--sn-edge); }
+  .props-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(26px, 4vw, 56px); }
+  .prop { border-top: 1px solid var(--sn-rule); padding-top: 20px; }
+  .prop-title { font-family: var(--sn-font-heading); font-weight: 500; font-size: 25px; color: var(--sn-accent); }
+  .prop-body { font-size: 15.5px; line-height: 1.75; color: var(--sn-soft); margin: 13px 0 0; text-align: justify; hyphens: auto; }
+
+  /* — closing line — */
+  .closing { background: var(--sn-ink); padding: clamp(48px, 6.5vw, 80px) var(--sn-edge); text-align: center; }
+  .closing-text { font-family: var(--sn-font-heading); font-size: clamp(22px, 3.2vw, 34px); line-height: 1.32; color: var(--sn-cream); }
+
+  /* — email capture — */
+  .email { background: var(--sn-cream); border-bottom: 1px solid var(--sn-rule); padding: clamp(48px, 6.5vw, 84px) var(--sn-edge); }
+  .email-grid { max-width: var(--sn-max); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(26px, 4vw, 64px); align-items: end; }
+  .email-heading { font-family: var(--sn-font-heading); font-weight: 500; font-size: clamp(26px, 3vw, 36px); line-height: 1.16; color: var(--sn-accent); }
+  .email-body { font-size: 16px; line-height: 1.75; color: var(--sn-soft); margin: 16px 0 0; max-width: 46ch; }
+  .email-form { display: flex; gap: 10px; align-items: stretch; flex-wrap: wrap; }
+  .email-input { flex: 1 1 200px; min-height: 46px; background: var(--sn-card); border-color: rgba(33, 29, 25, 0.28); color: var(--sn-ink); font-family: var(--sn-font-body); }
+  .email-cta { min-height: 46px; }
+  .email-note { font-size: 13px; color: rgba(33, 29, 25, 0.6); margin: 13px 0 0; }
+
+  /* — footer — */
+  .footer { max-width: var(--sn-max); margin: 0 auto; padding: clamp(34px, 5vw, 52px) var(--sn-edge) clamp(72px, 9vw, 104px); display: flex; flex-wrap: wrap; gap: 8px 32px; align-items: baseline; }
+  .footer-text { font-size: 13px; color: var(--sn-soft); }
+  .footer-tagline { font-family: var(--sn-font-heading); font-style: italic; font-size: 14px; color: var(--sn-accent); margin-left: auto; }
+
+  /* — sticky buy bar — */
+  .sticky-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; transform: translateY(120%);
+    transition: transform .45s cubic-bezier(.2,.7,.2,1); background: var(--sn-cream);
+    border-top: 1px solid rgba(33, 29, 25, 0.26); box-shadow: var(--sn-shadow);
+  }
+  .sticky-bar.in { transform: translateY(0); }
+  .sticky-bar-inner { max-width: var(--sn-max); margin: 0 auto; padding: 12px var(--sn-edge); display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .sticky-bar-label { font-family: var(--sn-font-heading); font-size: 17px; color: var(--sn-accent); }
+  .sticky-bar-price { font-size: 13px; letter-spacing: 0.03em; color: var(--sn-soft); font-feature-settings: 'tnum' 1; }
+  .sticky-bar-cta { margin-left: auto; padding: 10px 20px; }
+  @media (prefers-reduced-motion: reduce) { .sticky-bar { transition: none; } }
+
+  /* — no-WebGL fallback for <soap-bar-3d> — */
+  soap-bar-3d.sn-no-webgl { display: flex; align-items: center; justify-content: center; background: var(--sn-card); }
+  soap-bar-3d.sn-no-webgl::after { content: attr(data-fallback-letter); font-family: var(--sn-font-heading); font-size: clamp(32px, 6vw, 56px); font-weight: 500; color: var(--sn-accent); opacity: 0.55; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-brand">Soap&nbsp;Notes</span>
+  <a href="#origin" class="link">How it started</a>
+  <a href="#founding" class="link">The founding set</a>
+  <a href="#series" class="link">The S.O.A.P. series</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1 class="hero-title">Soap Notes</h1>
+    <p class="hero-subhead">Handcrafted soap wrapped in questions worth sitting with.</p>
+    <p class="hero-body">Because the best conversations happen when your hands are busy and your guard is down.</p>
+    <div class="hero-ctas">
+      <a href="#founding" class="btn">Shop the founding set</a>
+      <a href="#series" class="btn btn-secondary">The S.O.A.P. series</a>
+    </div>
+  </div>
+  <figure class="plate">
+    <div class="hero-stage">
+      <soap-bar-3d mode="trio" style="width:100%;height:100%"></soap-bar-3d>
+    </div>
+  </figure>
+</section>
+
+<div id="sn-sentinel" style="height:1px"></div>
+
+<section id="origin" data-reveal class="origin">
+  <div class="origin-grid">
+    <div>
+      <span class="kicker mb-16">How it started</span>
+      <h2 class="origin-headline">It began at a fête.</h2>
+      <p class="origin-attribution">— [Her Name], Founder</p>
+    </div>
+    <div>
+      <p class="prose">Lovely, buzzing conversation, and questions that kept the room's mind alive and thinking. By the end of the night, something was clear: the right question at the right moment changes a room and the people in it.</p>
+      <p class="prose">Soap Notes is built on that idea. Every bar carries a scent worth remembering and a question worth returning to. You'll use it in the shower or at the sink, in those private, quiet in-between moments. And sometimes, mid-lather: Eureka!</p>
+      <p class="origin-quote">That's it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="founding" data-reveal class="founding">
+  <span class="kicker mb-16">The founding set</span>
+  <h2 class="founding-heading">Four bars, one beginning.</h2>
+  <div class="founding-grid">
+    <p class="founding-lede">Silk amino acids finish every bar, so the lather feels like the luxury it is. Beneath the fragrance, a question waits, sealed until you're ready to open it.</p>
+    <dl class="bar-list">
+      <dt>Agora</dt>
+      <dd>holds the question that started it all.</dd>
+      <dt class="ruled">Eros</dt>
+      <dd class="ruled">holds questions that awaken the desire already inside you.</dd>
+      <dt class="ruled">Kairos</dt>
+      <dd class="ruled">holds questions that lift you back into your own aliveness.</dd>
+      <dt class="ruled">Logos</dt>
+      <dd class="ruled">holds the warm memory of what you want to leave behind as legacy.</dd>
+    </dl>
+  </div>
+  <p class="founding-quote">Are you ready to open up?</p>
+</section>
+
+<section data-reveal class="cards">
+  <article class="card">
+    <figure class="plate card-figure">
+      <div class="card-stage">
+        <soap-bar-3d mode="bar" tone="#EFE6D2" label="Agora" sub="the origin bar" style="width:100%;height:100%"></soap-bar-3d>
+      </div>
+    </figure>
+    <h3 class="card-name">Agora</h3>
+    <p class="card-sub">The Origin Bar</p>
+    <p class="card-body">Agora speaks of the mind alive in a crowd, ideas trading hands in the open air. Verbena opens up sharp green, the scent of your favorite marketplace just waking up, stalls opening, voices chattering, the buzz that keeps you loitering in all of the familiar scents and smells. Clary sage follows, clear-headed, herbaceous, finding you in the middle of the noise. Cedarwood, the base note, holds your senses steady, reminding you that you're still the person you desire to be in the midst of it all.</p>
+    <div class="card-footer">
+      <span class="card-price">$18</span>
+      <button type="button" class="btn btn-card">Yes, I want to begin</button>
+    </div>
+  </article>
+
+  <article class="card">
+    <figure class="plate card-figure">
+      <div class="card-stage">
+        <soap-bar-3d mode="bar" tone="#E9D2CC" label="Eros" sub="no. 01 · connection" style="width:100%;height:100%"></soap-bar-3d>
+      </div>
+    </figure>
+    <h3 class="card-name">Eros</h3>
+    <p class="card-sub">No. 01 · Connection</p>
+    <p class="card-body">Eros speaks of love, of affirmation, of the kind of care that comes from the people in your life you don't have to perform for. Ylang ylang opens the bar soft and floral, easing into the familiar room where you are loved before all else. Rose geranium follows next, the mid note, warm and rosy, holding its ground without asking for too much attention, just like home, where nothing else is asked of us. Cedarwood, the base note, wraps its arms around you like your favorite blanket, or your beloved grandma.</p>
+    <div class="card-footer">
+      <span class="card-price">$18</span>
+      <button type="button" class="btn btn-card">Yes, I want love</button>
+    </div>
+  </article>
+
+  <article class="card">
+    <figure class="plate card-figure">
+      <div class="card-stage">
+        <soap-bar-3d mode="bar" tone="#EFE2C6" label="Kairos" sub="no. 02 · adventure" style="width:100%;height:100%"></soap-bar-3d>
+      </div>
+    </figure>
+    <h3 class="card-name">Kairos</h3>
+    <p class="card-sub">No. 02 · Adventure</p>
+    <p class="card-body">Kairos speaks of aliveness, the pull toward something new. Bergamot and grapefruit open together, the sharp zest of peeling citrus with your hands. Ginger follows warm and spiced, the kind of wake-up that doesn't need coffee. Cedarwood, the base note, grounds it all, steady footing for the kind of alive you want to be when you step out.</p>
+    <div class="card-footer">
+      <span class="card-price">$18</span>
+      <button type="button" class="btn btn-card">Yes, I want aliveness</button>
+    </div>
+  </article>
+
+  <article class="card">
+    <figure class="plate card-figure">
+      <div class="card-stage">
+        <soap-bar-3d mode="bar" tone="#E7DCC2" label="Logos" sub="no. 03 · legacy" style="width:100%;height:100%"></soap-bar-3d>
+      </div>
+    </figure>
+    <h3 class="card-name">Logos</h3>
+    <p class="card-sub">No. 03 · Legacy</p>
+    <p class="card-body">Logos speaks of legacy, what stays after you've left the room. Cardamom opens warm and spiced, restrained rather than loud. Vetiver follows earthy and rooted, the smell of something that doesn't move. Cedarwood, the base note, holds it down and evokes the trace of you that stays long after you've left the room.</p>
+    <div class="card-footer">
+      <span class="card-price">$18</span>
+      <button type="button" class="btn btn-card">Yes, I want to be remembered</button>
+    </div>
+  </article>
+</section>
+
+<section data-reveal class="trio-section">
+  <div class="trio-panel">
+    <div>
+      <span class="kicker mb-14">The complete trio</span>
+      <h3 class="trio-heading">Eros, Kairos, Logos. One gift box.</h3>
+      <p class="trio-body">Packaged in a recycled kraftboard drawer box, cream-lined interior. Each card tucked loose inside, so you can take the questions with you.</p>
+      <div class="trio-price-row">
+        <span class="trio-price">$48</span>
+        <button type="button" class="btn">Yes, I want it all</button>
+      </div>
+      <p class="trio-note">Agora sold separately — it's the origin piece, not part of the boxed trio.</p>
+    </div>
+    <figure class="plate">
+      <div class="trio-stage">
+        <soap-bar-3d mode="box" style="width:100%;height:100%"></soap-bar-3d>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section id="series" data-reveal class="series">
+  <div class="series-inner">
+    <div class="series-intro">
+      <span class="kicker kicker-on-dark mb-16">A different kind of note</span>
+      <h2 class="series-heading">The S.O.A.P. Series</h2>
+      <p class="series-lead">We've recrafted soap. Not simply for getting luxuriously clean, but as a way of starting your day, week, month or year with a soap note.</p>
+      <p class="series-quote">The fragrance notes are meant for your senses. The soap notes are meant for your spirit.</p>
+    </div>
+
+    <div class="letters">
+      <div class="letter"><div class="letter-glyph">S</div><div class="letter-label">Scripture</div></div>
+      <div class="letter"><div class="letter-glyph">O</div><div class="letter-label">Observation</div></div>
+      <div class="letter"><div class="letter-glyph">A</div><div class="letter-label">Application</div></div>
+      <div class="letter"><div class="letter-glyph">P</div><div class="letter-label">Prayer</div></div>
+    </div>
+
+    <div class="series-prose">
+      <p class="series-paragraph">Every bar holds the four notes — Scripture, Observation, Application, Prayer. S.O.A.P. Which note is yours stays a secret until you open it — a surprise waiting to awaken your senses and nourish your spirit.</p>
+      <p class="series-paragraph">Seven bars to an edition. Once they're gone, the next edition begins — new scripture, new questions, nothing repeats.</p>
+    </div>
+
+    <div class="series-footer">
+      <button type="button" class="btn btn-light">Shop the series</button>
+      <p class="series-note">Written for you, together.</p>
+    </div>
+  </div>
+</section>
+
+<section data-reveal class="props">
+  <span class="kicker mb-32">What Soap Notes is</span>
+  <div class="props-grid">
+    <div class="prop">
+      <h3 class="prop-title">Handmade.</h3>
+      <p class="prop-body">Small custom batch production. No two bars are identical.</p>
+    </div>
+    <div class="prop">
+      <h3 class="prop-title">Intentional.</h3>
+      <p class="prop-body">The scents and notes are chosen the way you might choose your favorite playlist. For mood, for nostalgic memory and all it unlocks within.</p>
+    </div>
+    <div class="prop">
+      <h3 class="prop-title">Conversational.</h3>
+      <p class="prop-body">The questions are not decorative. They are integral to our products. The soap just gives you something to hold while you think.</p>
+    </div>
+  </div>
+</section>
+
+<div class="closing">
+  <p class="closing-text">Soap Notes. Lather in luxury. Keep the questions.</p>
+</div>
+
+<section data-reveal class="email">
+  <div class="email-grid">
+    <div>
+      <h2 class="email-heading">Come back often. The questions change.</h2>
+      <p class="email-body">Each new bar carries new questions. New scents. New reasons to pause. Join the list and be the first to know when a new batch drops.</p>
+    </div>
+    <div>
+      <div class="email-form">
+        <input class="input email-input" type="email" placeholder="Your email address" aria-label="Your email address">
+        <button type="button" class="btn email-cta">Keep me posted</button>
+      </div>
+      <p class="email-note">No spam. Just soap notes.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="footer-text">Soap Notes · Handcrafted in small batches · [Location optional]</p>
+  <p class="footer-text">soapnotes.store · [Instagram handle] · [Email]</p>
+  <p class="footer-tagline">Lather in luxury. Keep the questions.</p>
+</footer>
+
+<div id="sn-sticky-bar" class="sticky-bar">
+  <div class="sticky-bar-inner">
+    <span class="sticky-bar-label">The Founding Set</span>
+    <span class="sticky-bar-price">$18 a bar · $48 the trio</span>
+    <a href="#founding" class="btn sticky-bar-cta">Shop the set</a>
+  </div>
+</div>
+
+<script>
+  // Scroll reveals: one-shot, never re-hide on scroll up.
+  (function () {
+    var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.setAttribute('data-reveal', 'in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    nodes.forEach(function (n) { io.observe(n); });
+  })();
+
+  // Sticky buy bar: slides in once the hero is scrolled past (not approached from below).
+  (function () {
+    var sentinel = document.getElementById('sn-sentinel');
+    var bar = document.getElementById('sn-sticky-bar');
+    var barIo = new IntersectionObserver(function (entries) {
+      var e = entries[0];
+      var show = !e.isIntersecting && e.boundingClientRect.top < 0;
+      bar.classList.toggle('in', show);
+    }, { threshold: 0 });
+    barIo.observe(sentinel);
+  })();
+
+  // No-WebGL fallback: swap every <soap-bar-3d> for a static branded panel
+  // instead of loading the 3D module, when the browser can't do WebGL.
+  (function () {
+    function supportsWebGL() {
+      try {
+        var c = document.createElement('canvas');
+        return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl')));
+      } catch (e) { return false; }
+    }
+    if (!supportsWebGL()) {
+      document.querySelectorAll('soap-bar-3d').forEach(function (el) {
+        el.classList.add('sn-no-webgl');
+        el.setAttribute('data-fallback-letter', (el.getAttribute('label') || 'Soap Notes').charAt(0));
+        el.setAttribute('role', 'img');
+        el.setAttribute('aria-label', (el.getAttribute('label') || 'Soap Notes') + ' soap bar');
+      });
+    } else {
+      var s = document.createElement('script');
+      s.type = 'module';
+      s.src = 'soap-bar-3d.js';
+      document.body.appendChild(s);
+    }
+  })();
+</script>
+
+</body>
+</html>
