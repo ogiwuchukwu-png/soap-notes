@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/classical-ee78b107-1e5f-41ca-84a8-831a2047aa18/styles.css">
+<script src="_ds/classical-ee78b107-1e5f-41ca-84a8-831a2047aa18/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sn-accent: #6E2A2A;
+  --color-accent: #6E2A2A;
+  --color-accent-600: #5d2222;
+  --color-accent-700: #4d1c1c;
+  --color-bg: #D9CBA3;
+  --color-surface: #E3D6B4;
+  --color-text: #211D19;
+  --color-divider: rgba(33, 29, 25, 0.22);
+  --sn-paper: #D9CBA3;
+  --sn-card: #E3D6B4;
+  --sn-cream: #EDE4CC;
+  --sn-ink: #211D19;
+  --sn-soft: #4f483c;
+  --sn-dark: #211D19;
+  --sn-rule: rgba(33, 29, 25, 0.2);
+  --sn-hair: rgba(33, 29, 25, 0.14);
+  --sn-edge: clamp(20px, 5vw, 64px);
+}
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sn-paper);
+  color: var(--sn-ink);
+  font-family: "Karla", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.62;
+  text-wrap: pretty;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--sn-accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: #4d1c1c; }
+.sn-btn {
+  font-family: "Karla", system-ui, sans-serif; font-size: 13px; font-weight: 500;
+  letter-spacing: 0.07em; text-transform: uppercase; color: var(--sn-accent);
+  background: transparent; border: 1px solid var(--sn-accent); border-radius: 2px;
+  padding: 13px 24px; cursor: pointer; text-decoration: none; display: inline-block; line-height: 1.2;
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+.sn-btn:hover { background: rgba(110, 42, 42, 0.09); }
+.sn-btn:active { border-color: #4d1c1c; color: #4d1c1c; }
+.sn-btn:focus-visible { outline: 2px solid var(--sn-accent); outline-offset: 2px; }
+.sn-btn-light { color: var(--sn-cream); border-color: rgba(237, 228, 204, 0.55); }
+.sn-btn-light:hover { background: rgba(237, 228, 204, 0.12); border-color: var(--sn-cream); }
+.sn-link { font-family: "Karla", system-ui, sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sn-soft); text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s ease, border-color .2s ease; }
+.sn-link:hover { color: var(--sn-accent); border-bottom-color: var(--sn-accent); }
+.sn-kicker { display: block; font-family: "Karla", system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sn-accent); }
+[data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+[data-reveal="in"] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.184.0/build/three.module.js"
+  },
+  "integrity": {
+    "https://unpkg.com/three@0.184.0/build/three.module.js": "sha384-8FCZ1eVO6it4+pbec2aDtnTrwjWXZLJRC+MAGCIPDgsYnUrl/E0A2YlF8ioMKI/J",
+    "https://unpkg.com/three@0.184.0/build/three.core.js": "sha384-dw2ooPewaEIrAgl6oFDBmmBWCE9oW9LxRGcfwZ0hLvEprzo202wXl7vCYHRlSnOT"
+  }
+}
+</script>
+<script type="module" src="soap-bar-3d.js"></script>
+</helmet>
+
+<div style="background: var(--sn-paper); overflow-x: hidden">
+
+  <nav style="display: flex; align-items: baseline; gap: 26px; padding: 22px var(--sn-edge); border-bottom: 1px solid var(--sn-rule)">
+    <span style="font-family: 'Lora', Georgia, serif; font-size: 19px; font-weight: 500; letter-spacing: 0.01em; color: var(--sn-accent); margin-right: auto">Soap&nbsp;Notes</span>
+    <a href="#origin" class="sn-link">How it started</a>
+    <a href="#founding" class="sn-link">The founding set</a>
+    <a href="#series" class="sn-link">The S.O.A.P. series</a>
+  </nav>
+
+  <section style="max-width: 1200px; margin: 0 auto; padding: clamp(48px, 7vw, 92px) var(--sn-edge) clamp(36px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(24px, 4vw, 64px); align-items: center">
+    <div>
+      <h1 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: clamp(48px, 7vw, 86px); line-height: 1.02; letter-spacing: -0.015em; color: var(--sn-accent); margin: 0 0 0 -0.03em">Soap Notes</h1>
+      <p style="font-family: 'Lora', Georgia, serif; font-size: clamp(21px, 2.5vw, 27px); line-height: 1.38; color: var(--sn-ink); max-width: 30ch; margin: 26px 0 0">Handcrafted soap wrapped in questions worth sitting with.</p>
+      <p style="font-size: 16.5px; line-height: 1.72; color: var(--sn-soft); max-width: 42ch; margin: 22px 0 0">Because the best conversations happen when your hands are busy and your guard is down.</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px">
+        <a href="#founding" class="sn-btn">Shop the founding set</a>
+        <a href="#series" class="sn-btn" style="border-color: rgba(33, 29, 25, 0.3); color: var(--sn-ink)">The S.O.A.P. series</a>
+      </div>
+    </div>
+    <figure class="plate" style="margin: 0; width: 100%">
+      <div style="width: 100%; aspect-ratio: 5 / 4; min-height: 240px">
+        <soap-bar-3d mode="trio" style="width: 100%; height: 100%"></soap-bar-3d>
+      </div>
+    </figure>
+  </section>
+
+  <div ref="{{ sentinelRef }}" style="height: 1px"></div>
+
+  <section id="origin" data-reveal="" style="border-top: 1px solid var(--sn-rule); border-bottom: 1px solid var(--sn-rule); background: var(--sn-cream); padding: clamp(52px, 7vw, 92px) var(--sn-edge)">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(26px, 4vw, 64px)">
+      <div>
+        <span class="sn-kicker" style="margin-bottom: 16px">How it started</span>
+        <h2 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.12; color: var(--sn-accent); margin: 0">It began at a fête.</h2>
+        <p style="font-size: 14px; letter-spacing: 0.03em; color: var(--sn-soft); margin: 30px 0 0">— [Her Name], Founder</p>
+      </div>
+      <div>
+        <p style="font-size: 16.5px; line-height: 1.78; color: var(--sn-soft); margin: 0; text-align: justify; hyphens: auto">Lovely, buzzing conversation, and questions that kept the room's mind alive and thinking. By the end of the night, something was clear: the right question at the right moment changes a room and the people in it.</p>
+        <p style="font-size: 16.5px; line-height: 1.78; color: var(--sn-soft); margin: 20px 0 0; text-align: justify; hyphens: auto">Soap Notes is built on that idea. Every bar carries a scent worth remembering and a question worth returning to. You'll use it in the shower or at the sink, in those private, quiet in-between moments. And sometimes, mid-lather: Eureka!</p>
+        <p style="font-family: 'Lora', Georgia, serif; font-size: 22px; font-style: italic; color: var(--sn-accent); margin: 22px 0 0">That's it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="founding" data-reveal="" style="max-width: 1200px; margin: 0 auto; padding: clamp(52px, 7vw, 96px) var(--sn-edge) 0">
+    <span class="sn-kicker" style="margin-bottom: 16px">The founding set</span>
+    <h2 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: clamp(32px, 4.4vw, 56px); line-height: 1.08; letter-spacing: -0.01em; color: var(--sn-accent); margin: 0 0 0 -0.03em">Four bars, one beginning.</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(26px, 4vw, 64px); margin-top: 34px">
+      <p style="font-size: 16.5px; line-height: 1.75; color: var(--sn-soft); margin: 0; text-align: justify; hyphens: auto">Silk amino acids finish every bar, so the lather feels like the luxury it is. Beneath the fragrance, a question waits, sealed until you're ready to open it.</p>
+      <dl style="display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0 24px; margin: 0; border-top: 1px solid var(--sn-rule)">
+        <dt style="font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 500; letter-spacing: 0.02em; color: var(--sn-accent); padding: 13px 0 0">Agora</dt>
+        <dd style="font-size: 15px; line-height: 1.6; color: var(--sn-soft); margin: 0; padding: 14px 0 13px">holds the question that started it all.</dd>
+        <dt style="font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 500; letter-spacing: 0.02em; color: var(--sn-accent); padding: 13px 0 0; border-top: 1px solid var(--sn-hair)">Eros</dt>
+        <dd style="font-size: 15px; line-height: 1.6; color: var(--sn-soft); margin: 0; padding: 14px 0 13px; border-top: 1px solid var(--sn-hair)">holds questions that awaken the desire already inside you.</dd>
+        <dt style="font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 500; letter-spacing: 0.02em; color: var(--sn-accent); padding: 13px 0 0; border-top: 1px solid var(--sn-hair)">Kairos</dt>
+        <dd style="font-size: 15px; line-height: 1.6; color: var(--sn-soft); margin: 0; padding: 14px 0 13px; border-top: 1px solid var(--sn-hair)">holds questions that lift you back into your own aliveness.</dd>
+        <dt style="font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 500; letter-spacing: 0.02em; color: var(--sn-accent); padding: 13px 0 0; border-top: 1px solid var(--sn-hair)">Logos</dt>
+        <dd style="font-size: 15px; line-height: 1.6; color: var(--sn-soft); margin: 0; padding: 14px 0 13px; border-top: 1px solid var(--sn-hair)">holds the warm memory of what you want to leave behind as legacy.</dd>
+      </dl>
+    </div>
+    <p style="font-family: 'Lora', Georgia, serif; font-style: italic; font-size: clamp(24px, 3vw, 32px); color: var(--sn-accent); margin: 42px 0 0">Are you ready to open up?</p>
+  </section>
+
+  <section data-reveal="" style="max-width: 1200px; margin: 0 auto; padding: clamp(32px, 5vw, 56px) var(--sn-edge) 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(22px, 3vw, 36px)">
+    <article style="background: var(--sn-card); border: 1px solid var(--sn-rule); border-radius: 2px; padding: 22px 24px 22px; display: flex; flex-direction: column">
+      <figure class="plate" style="margin: 0 0 14px">
+        <div style="width: 100%; aspect-ratio: 4 / 3; min-height: 170px">
+          <soap-bar-3d mode="bar" tone="#EFE6D2" label="Agora" sub="the origin bar" style="width: 100%; height: 100%"></soap-bar-3d>
+        </div>
+      </figure>
+      <h3 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 28px; line-height: 1.08; color: var(--sn-accent); margin: 0">Agora</h3>
+      <p style="font-size: 11.5px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sn-soft); margin: 9px 0 18px">The Origin Bar</p>
+      <p style="font-size: 14.5px; line-height: 1.7; color: var(--sn-soft); margin: 0; text-align: justify; hyphens: auto">Agora speaks of the mind alive in a crowd, ideas trading hands in the open air. Verbena opens up sharp green, the scent of your favorite marketplace just waking up, stalls opening, voices chattering, the buzz that keeps you loitering in all of the familiar scents and smells. Clary sage follows, clear-headed, herbaceous, finding you in the middle of the noise. Cedarwood, the base note, holds your senses steady, reminding you that you're still the person you desire to be in the midst of it all.</p>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: auto; padding-top: 22px">
+        <span style="font-family: 'Lora', Georgia, serif; font-size: 19px; font-feature-settings: 'tnum' 1; color: var(--sn-ink)">$18</span>
+        <button type="button" class="sn-btn" style="padding: 11px 18px; font-size: 12px">Yes, I want to begin</button>
+      </div>
+    </article>
+
+    <article style="background: var(--sn-card); border: 1px solid var(--sn-rule); border-radius: 2px; padding: 22px 24px 22px; display: flex; flex-direction: column">
+      <figure class="plate" style="margin: 0 0 14px">
+        <div style="width: 100%; aspect-ratio: 4 / 3; min-height: 170px">
+          <soap-bar-3d mode="bar" tone="#E9D2CC" label="Eros" sub="no. 01 · connection" style="width: 100%; height: 100%"></soap-bar-3d>
+        </div>
+      </figure>
+      <h3 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 28px; line-height: 1.08; color: var(--sn-accent); margin: 0">Eros</h3>
+      <p style="font-size: 11.5px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sn-soft); margin: 9px 0 18px">No. 01 · Connection</p>
+      <p style="font-size: 14.5px; line-height: 1.7; color: var(--sn-soft); margin: 0; text-align: justify; hyphens: auto">Eros speaks of love, of affirmation, of the kind of care that comes from the people in your life you don't have to perform for. Ylang ylang opens the bar soft and floral, easing into the familiar room where you are loved before all else. Rose geranium follows next, the mid note, warm and rosy, holding its ground without asking for too much attention, just like home, where nothing else is asked of us. Cedarwood, the base note, wraps its arms around you like your favorite blanket, or your beloved grandma.</p>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: auto; padding-top: 22px">
+        <span style="font-family: 'Lora', Georgia, serif; font-size: 19px; font-feature-settings: 'tnum' 1; color: var(--sn-ink)">$18</span>
+        <button type="button" class="sn-btn" style="padding: 11px 18px; font-size: 12px">Yes, I want love</button>
+      </div>
+    </article>
+
+    <article style="background: var(--sn-card); border: 1px solid var(--sn-rule); border-radius: 2px; padding: 22px 24px 22px; display: flex; flex-direction: column">
+      <figure class="plate" style="margin: 0 0 14px">
+        <div style="width: 100%; aspect-ratio: 4 / 3; min-height: 170px">
+          <soap-bar-3d mode="bar" tone="#EFE2C6" label="Kairos" sub="no. 02 · adventure" style="width: 100%; height: 100%"></soap-bar-3d>
+        </div>
+      </figure>
+      <h3 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 28px; line-height: 1.08; color: var(--sn-accent); margin: 0">Kairos</h3>
+      <p style="font-size: 11.5px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sn-soft); margin: 9px 0 18px">No. 02 · Adventure</p>
+      <p style="font-size: 14.5px; line-height: 1.7; color: var(--sn-soft); margin: 0; text-align: justify; hyphens: auto">Kairos speaks of aliveness, the pull toward something new. Bergamot and grapefruit open together, the sharp zest of peeling citrus with your hands. Ginger follows warm and spiced, the kind of wake-up that doesn't need coffee. Cedarwood, the base note, grounds it all, steady footing for the kind of alive you want to be when you step out.</p>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: auto; padding-top: 22px">
+        <span style="font-family: 'Lora', Georgia, serif; font-size: 19px; font-feature-settings: 'tnum' 1; color: var(--sn-ink)">$18</span>
+        <button type="button" class="sn-btn" style="padding: 11px 18px; font-size: 12px">Yes, I want aliveness</button>
+      </div>
+    </article>
+
+    <article style="background: var(--sn-card); border: 1px solid var(--sn-rule); border-radius: 2px; padding: 22px 24px 22px; display: flex; flex-direction: column">
+      <figure class="plate" style="margin: 0 0 14px">
+        <div style="width: 100%; aspect-ratio: 4 / 3; min-height: 170px">
+          <soap-bar-3d mode="bar" tone="#E7DCC2" label="Logos" sub="no. 03 · legacy" style="width: 100%; height: 100%"></soap-bar-3d>
+        </div>
+      </figure>
+      <h3 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 28px; line-height: 1.08; color: var(--sn-accent); margin: 0">Logos</h3>
+      <p style="font-size: 11.5px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sn-soft); margin: 9px 0 18px">No. 03 · Legacy</p>
+      <p style="font-size: 14.5px; line-height: 1.7; color: var(--sn-soft); margin: 0; text-align: justify; hyphens: auto">Logos speaks of legacy, what stays after you've left the room. Cardamom opens warm and spiced, restrained rather than loud. Vetiver follows earthy and rooted, the smell of something that doesn't move. Cedarwood, the base note, holds it down and evokes the trace of you that stays long after you've left the room.</p>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: auto; padding-top: 22px">
+        <span style="font-family: 'Lora', Georgia, serif; font-size: 19px; font-feature-settings: 'tnum' 1; color: var(--sn-ink)">$18</span>
+        <button type="button" class="sn-btn" style="padding: 11px 18px; font-size: 12px">Yes, I want to be remembered</button>
+      </div>
+    </article>
+  </section>
+
+  <section data-reveal="" style="max-width: 1200px; margin: 0 auto; padding: clamp(28px, 4vw, 44px) var(--sn-edge) clamp(52px, 7vw, 92px)">
+    <div style="border: 1px solid var(--sn-rule); border-radius: 2px; background: var(--sn-cream); padding: clamp(26px, 3.5vw, 44px); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(24px, 4vw, 52px); align-items: center">
+      <div>
+        <span class="sn-kicker" style="margin-bottom: 14px">The complete trio</span>
+        <h3 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: clamp(26px, 3vw, 36px); line-height: 1.14; color: var(--sn-accent); margin: 0">Eros, Kairos, Logos. One gift box.</h3>
+        <p style="font-size: 15.5px; line-height: 1.75; color: var(--sn-soft); margin: 18px 0 0; max-width: 44ch">Packaged in a recycled kraftboard drawer box, cream-lined interior. Each card tucked loose inside, so you can take the questions with you.</p>
+        <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 26px">
+          <span style="font-family: 'Lora', Georgia, serif; font-size: 24px; font-feature-settings: 'tnum' 1; color: var(--sn-ink)">$48</span>
+          <button type="button" class="sn-btn">Yes, I want it all</button>
+        </div>
+        <p style="font-size: 13px; line-height: 1.6; color: rgba(33, 29, 25, 0.62); margin: 20px 0 0">Agora sold separately — it's the origin piece, not part of the boxed trio.</p>
+      </div>
+      <figure class="plate" style="margin: 0; width: 100%">
+        <div style="width: 100%; aspect-ratio: 4 / 3; min-height: 220px">
+          <soap-bar-3d mode="box" style="width: 100%; height: 100%"></soap-bar-3d>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="series" data-reveal="" style="background: var(--sn-dark); padding: clamp(52px, 7vw, 96px) var(--sn-edge)">
+    <div style="max-width: 1200px; margin: 0 auto">
+      <div style="max-width: 660px">
+        <span class="sn-kicker" style="color: #c9a06d; margin-bottom: 16px">A different kind of note</span>
+        <h2 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: clamp(32px, 4.2vw, 52px); line-height: 1.08; letter-spacing: -0.01em; color: var(--sn-cream); margin: 0 0 0 -0.02em">The S.O.A.P. Series</h2>
+        <p style="font-size: 16.5px; line-height: 1.78; color: #ddd3bd; margin: 24px 0 0">We've recrafted soap. Not simply for getting luxuriously clean, but as a way of starting your day, week, month or year with a soap note.</p>
+        <p style="font-family: 'Lora', Georgia, serif; font-size: clamp(20px, 2.3vw, 25px); line-height: 1.5; color: var(--sn-cream); margin: 22px 0 0">The fragrance notes are meant for your senses. The soap notes are meant for your spirit.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; margin: clamp(34px, 5vw, 52px) 0 0; background: rgba(237, 228, 204, 0.22)">
+        <div style="background: var(--sn-dark); padding: 26px 22px">
+          <div style="font-family: 'Lora', Georgia, serif; font-size: 44px; line-height: 1; color: #c9a06d">S</div>
+          <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sn-cream); margin-top: 12px">Scripture</div>
+        </div>
+        <div style="background: var(--sn-dark); padding: 26px 22px">
+          <div style="font-family: 'Lora', Georgia, serif; font-size: 44px; line-height: 1; color: #c9a06d">O</div>
+          <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sn-cream); margin-top: 12px">Observation</div>
+        </div>
+        <div style="background: var(--sn-dark); padding: 26px 22px">
+          <div style="font-family: 'Lora', Georgia, serif; font-size: 44px; line-height: 1; color: #c9a06d">A</div>
+          <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sn-cream); margin-top: 12px">Application</div>
+        </div>
+        <div style="background: var(--sn-dark); padding: 26px 22px">
+          <div style="font-family: 'Lora', Georgia, serif; font-size: 44px; line-height: 1; color: #c9a06d">P</div>
+          <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sn-cream); margin-top: 12px">Prayer</div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(26px, 4vw, 52px); margin-top: clamp(30px, 4vw, 44px)">
+        <p style="font-size: 16px; line-height: 1.78; color: #ddd3bd; margin: 0; text-align: justify; hyphens: auto">Every bar holds the four notes — Scripture, Observation, Application, Prayer. S.O.A.P. Which note is yours stays a secret until you open it — a surprise waiting to awaken your senses and nourish your spirit.</p>
+        <p style="font-size: 16px; line-height: 1.78; color: #ddd3bd; margin: 0; text-align: justify; hyphens: auto">Seven bars to an edition. Once they're gone, the next edition begins — new scripture, new questions, nothing repeats.</p>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: clamp(30px, 4vw, 42px)">
+        <button type="button" class="sn-btn sn-btn-light">Shop the series</button>
+        <p style="font-family: 'Lora', Georgia, serif; font-style: italic; font-size: 16px; color: #9a8f7a; margin: 0">Written for you, together.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-reveal="" style="max-width: 1200px; margin: 0 auto; padding: clamp(52px, 7vw, 96px) var(--sn-edge)">
+    <span class="sn-kicker" style="margin-bottom: 32px">What Soap Notes is</span>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(26px, 4vw, 56px)">
+      <div style="border-top: 1px solid var(--sn-rule); padding-top: 20px">
+        <h3 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 25px; color: var(--sn-accent); margin: 0">Handmade.</h3>
+        <p style="font-size: 15.5px; line-height: 1.75; color: var(--sn-soft); margin: 13px 0 0; text-align: justify; hyphens: auto">Small custom batch production. No two bars are identical.</p>
+      </div>
+      <div style="border-top: 1px solid var(--sn-rule); padding-top: 20px">
+        <h3 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 25px; color: var(--sn-accent); margin: 0">Intentional.</h3>
+        <p style="font-size: 15.5px; line-height: 1.75; color: var(--sn-soft); margin: 13px 0 0; text-align: justify; hyphens: auto">The scents and notes are chosen the way you might choose your favorite playlist. For mood, for nostalgic memory and all it unlocks within.</p>
+      </div>
+      <div style="border-top: 1px solid var(--sn-rule); padding-top: 20px">
+        <h3 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 25px; color: var(--sn-accent); margin: 0">Conversational.</h3>
+        <p style="font-size: 15.5px; line-height: 1.75; color: var(--sn-soft); margin: 13px 0 0; text-align: justify; hyphens: auto">The questions are not decorative. They are integral to our products. The soap just gives you something to hold while you think.</p>
+      </div>
+    </div>
+  </section>
+
+  <div style="background: var(--sn-dark); padding: clamp(48px, 6.5vw, 80px) var(--sn-edge); text-align: center">
+    <p style="font-family: 'Lora', Georgia, serif; font-size: clamp(22px, 3.2vw, 34px); line-height: 1.32; color: var(--sn-cream); margin: 0">Soap Notes. Lather in luxury. Keep the questions.</p>
+  </div>
+
+  <section data-reveal="" style="background: var(--sn-cream); border-bottom: 1px solid var(--sn-rule); padding: clamp(48px, 6.5vw, 84px) var(--sn-edge)">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(26px, 4vw, 64px); align-items: end">
+      <div>
+        <h2 style="font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: clamp(26px, 3vw, 36px); line-height: 1.16; color: var(--sn-accent); margin: 0">Come back often. The questions change.</h2>
+        <p style="font-size: 16px; line-height: 1.75; color: var(--sn-soft); margin: 16px 0 0; max-width: 46ch">Each new bar carries new questions. New scents. New reasons to pause. Join the list and be the first to know when a new batch drops.</p>
+      </div>
+      <div>
+        <div style="display: flex; gap: 10px; align-items: stretch; flex-wrap: wrap">
+          <input class="input" type="email" placeholder="Your email address" aria-label="Your email address" style="flex: 1 1 200px; min-height: 46px; background: var(--sn-card); border-color: rgba(33, 29, 25, 0.28); color: var(--sn-ink); font-family: 'Karla', system-ui, sans-serif">
+          <button type="button" class="sn-btn" style="min-height: 46px">Keep me posted</button>
+        </div>
+        <p style="font-size: 13px; color: rgba(33, 29, 25, 0.6); margin: 13px 0 0">No spam. Just soap notes.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="max-width: 1200px; margin: 0 auto; padding: clamp(34px, 5vw, 52px) var(--sn-edge) clamp(72px, 9vw, 104px); display: flex; flex-wrap: wrap; gap: 8px 32px; align-items: baseline">
+    <p style="font-size: 13px; color: var(--sn-soft); margin: 0">Soap Notes · Handcrafted in small batches · [Location optional]</p>
+    <p style="font-size: 13px; color: var(--sn-soft); margin: 0">soapnotes.store · [Instagram handle] · [Email]</p>
+    <p style="font-family: 'Lora', Georgia, serif; font-style: italic; font-size: 14px; color: var(--sn-accent); margin: 0; margin-left: auto">Lather in luxury. Keep the questions.</p>
+  </footer>
+
+  <div ref="{{ barRef }}" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; transform: translateY(120%); transition: transform .45s cubic-bezier(.2,.7,.2,1); background: var(--sn-cream); border-top: 1px solid rgba(33, 29, 25, 0.26); box-shadow: 0 -3px 10px rgba(33, 29, 25, 0.12)">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 12px var(--sn-edge); display: flex; align-items: center; gap: 18px; flex-wrap: wrap">
+      <span style="font-family: 'Lora', Georgia, serif; font-size: 17px; color: var(--sn-accent)">The Founding Set</span>
+      <span style="font-size: 13px; letter-spacing: 0.03em; color: var(--sn-soft); font-feature-settings: 'tnum' 1">$18 a bar · $48 the trio</span>
+      <a href="#founding" class="sn-btn" style="margin-left: auto; padding: 10px 20px">Shop the set</a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#6E2A2A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#6E2A2A&quot;,&quot;#5A2B20&quot;,&quot;#3F3A2E&quot;,&quot;#211D19&quot;],&quot;section&quot;:&quot;Brand&quot;},&quot;paper&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#D9CBA3&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D9CBA3&quot;,&quot;#E3D6B4&quot;,&quot;#EDE4CC&quot;,&quot;#C9B98E&quot;],&quot;section&quot;:&quot;Brand&quot;},&quot;stickyBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;reveals&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() { this.applyTokens(); this.wire(); }
+  componentDidUpdate() { this.applyTokens(); this.wire(); }
+  applyTokens() {
+    const r = document.documentElement.style;
+    const accent = this.props.accent || '#6E2A2A';
+    r.setProperty('--sn-accent', accent);
+    r.setProperty('--color-accent', accent);
+    const paper = this.props.paper || '#D9CBA3';
+    r.setProperty('--sn-paper', paper);
+    r.setProperty('--color-bg', paper);
+    document.querySelectorAll('soap-bar-3d').forEach(el => {
+      if (el.getAttribute('accent') !== accent) el.setAttribute('accent', accent);
+    });
+  }
+  wire() {
+    const nodes = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (this.props.reveals === false) {
+      nodes.forEach(n => n.setAttribute('data-reveal', 'in'));
+    } else {
+      if (!this.io) {
+        this.io = new IntersectionObserver(es => es.forEach(e => {
+          if (e.isIntersecting) { e.target.setAttribute('data-reveal', 'in'); this.io.unobserve(e.target); }
+        }), { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+      }
+      nodes.filter(n => n.getAttribute('data-reveal') !== 'in').forEach(n => this.io.observe(n));
+    }
+    if (this.sentinel && !this.barIo) {
+      this.barIo = new IntersectionObserver(es => {
+        const e = es[0];
+        this.showBar = !e.isIntersecting && e.boundingClientRect.top < 0;
+        this.paintBar();
+      }, { threshold: 0 });
+      this.barIo.observe(this.sentinel);
+    }
+    this.paintBar();
+  }
+  paintBar() {
+    if (!this.bar) return;
+    const on = this.props.stickyBar !== false && this.showBar;
+    this.bar.style.transform = on ? 'translateY(0)' : 'translateY(120%)';
+  }
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    if (this.barIo) this.barIo.disconnect();
+  }
+  renderVals() {
+    return {
+      barRef: el => { this.bar = el; this.paintBar(); },
+      sentinelRef: el => { this.sentinel = el; }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Soap Notes — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --kraft: #D9CBA3;
+    --kraft-deep: #C7B78D;
+    --card-bg: #E8DCC0;
+    --ink: #211D19;
+    --ink-soft: #5c5346;
+    --accent: #6E2A2A;
+    --accent-light: #A8524B;
+    --charcoal: #1F1614;
+    --cream: #EDE4CC;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Karla', sans-serif;
+    color: var(--ink);
+    background: var(--kraft);
+  }
+  .serif { font-family: 'Karla', sans-serif; }
+  .sc { font-family: 'Karla', sans-serif; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+
+  section { padding: 96px 24px; }
+  .inner { max-width: 780px; margin: 0 auto; }
+  .inner-wide { max-width: 980px; margin: 0 auto; }
+
+  /* HERO */
+  .hero { text-align: center; padding-top: 120px; }
+  .hero .sc { font-size: 13px; color: var(--accent); margin-bottom: 20px; }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 68px;
+    line-height: 1.05;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+  .hero .sub {
+    font-family: 'Karla', sans-serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .hero .body {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 460px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+  .btn {
+    display: inline-block;
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    background: var(--accent);
+    padding: 14px 34px;
+    text-decoration: none;
+    border-radius: 2px;
+  }
+  .btn-outline {
+    display: inline-block;
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 13px 32px;
+    text-decoration: none;
+    border-radius: 2px;
+  }
+
+  /* ORIGIN */
+  .origin { background: var(--cream); }
+  .origin .sc { font-size: 13px; color: var(--accent); text-align: center; margin-bottom: 18px; }
+  .origin p {
+    font-family: 'Karla', sans-serif;
+    font-size: 24px;
+    line-height: 1.55;
+    text-align: center;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .origin .attribution {
+    font-size: 17px;
+    font-style: italic;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  /* FOUNDING SET */
+  .founding-intro { max-width: 640px; margin: 0 auto 80px; text-align: center; }
+  .founding-intro .sc { font-size: 13px; color: var(--accent); margin-bottom: 14px; }
+  .founding-intro h2 { font-family: 'Lora', serif; font-size: 34px; font-weight: 500; color: var(--accent); margin-bottom: 16px; }
+  .founding-intro p { font-size: 16px; color: var(--ink-soft); max-width: 480px; margin: 0 auto; line-height: 1.6; }
+  .holds-list {
+    text-align: left;
+    max-width: 460px;
+    margin: 32px auto;
+    border-top: 1px solid var(--kraft-deep);
+    border-bottom: 1px solid var(--kraft-deep);
+    padding: 24px 0;
+  }
+  .holds-list div {
+    display: flex;
+    gap: 18px;
+    padding: 10px 0;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .holds-list .holds-name {
+    font-family: 'Karla', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 66px;
+    padding-top: 2px;
+  }
+
+  .bar-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .bar-card {
+    background: var(--card-bg);
+    border: 1px solid var(--kraft-deep);
+    padding: 34px 30px;
+    text-align: left;
+  }
+  .bar-card .bar-name { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: var(--accent); text-align: center; }
+  .bar-card .bar-sub { font-family: 'Karla', sans-serif; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-align: center; margin-bottom: 14px; }
+  .bar-card .bar-desc { font-family: 'Karla', sans-serif; font-size: 13.5px; font-style: italic; color: var(--ink-soft); line-height: 1.55; margin-bottom: 18px; }
+  .bar-card .q {
+    font-family: 'Karla', sans-serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .bar-card .price-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 22px;
+  }
+  .bar-card .price { font-size: 15px; color: var(--ink); }
+
+  .trio {
+    margin-top: 40px;
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 46px 40px;
+    text-align: center;
+  }
+  .trio .sc { font-size: 12px; color: #c99b6d; margin-bottom: 10px; }
+  .trio h3 { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: #d99b8c; margin-bottom: 12px; }
+  .trio p { font-size: 14.5px; color: #cfc4ae; max-width: 460px; margin: 0 auto 22px; line-height: 1.6; }
+  .trio .note { font-size: 12px; color: #9a8f7a; margin-top: 16px; font-style: italic; }
+
+  /* SOAP SERIES */
+  .soap-section { background: var(--charcoal); color: var(--cream); }
+  .soap-section .sc { font-size: 13px; color: #c99b6d; text-align: center; margin-bottom: 16px; }
+  .soap-section h2 { font-family: 'Lora', serif; font-size: 32px; font-weight: 500; color: #d99b8c; text-align: center; margin-bottom: 28px; }
+  .soap-section p { font-family: 'Karla', sans-serif; font-size: 20px; line-height: 1.6; text-align: center; color: #e6dcc8; margin-bottom: 18px; }
+  .soap-section .fine { font-family: 'Karla', sans-serif; font-size: 13px; color: #9a8f7a; text-align: center; margin-top: 28px; }
+  .soap-cta { text-align: center; margin-top: 30px; }
+
+  /* BRAND PROMISE */
+  .promise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+  .promise-grid h3 { font-family: 'Karla', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 10px; }
+  .promise-grid p { font-size: 14px; color: var(--ink-soft); line-height: 1.6; }
+
+  /* TAGLINE BANNER */
+  .tagline-banner {
+    background: var(--charcoal);
+    text-align: center;
+    padding: 80px 24px;
+  }
+  .tagline-banner p {
+    font-family: 'Karla', sans-serif;
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--cream);
+  }
+
+  /* EMAIL CAPTURE */
+  .email-capture { text-align: center; background: var(--cream); }
+  .email-capture h2 { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: var(--accent); margin-bottom: 12px; }
+  .email-capture p { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 28px; }
+  .email-form { display: flex; justify-content: center; gap: 10px; max-width: 380px; margin: 0 auto; }
+  .email-form input {
+    flex: 1;
+    padding: 13px 16px;
+    border: 1px solid var(--kraft-deep);
+    background: var(--card-bg);
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+  }
+  .email-form button {
+    background: var(--accent);
+    color: var(--cream);
+    border: none;
+    padding: 13px 22px;
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .email-fine { font-size: 12px; color: #9a8f7a; margin-top: 16px; }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 48px 24px; background: var(--kraft); }
+  footer p { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 6px; }
+  footer .tag { font-family: 'Karla', sans-serif; font-style: italic; margin-top: 10px; }
+
+  @media (max-width: 680px) {
+    .hero h1 { font-size: 52px; }
+    .bar-grid { grid-template-columns: 1fr; }
+    .promise-grid { grid-template-columns: 1fr; gap: 30px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="inner">
+      <div class="sc">Soap Notes</div>
+      <h1>Soap Notes</h1>
+      <div class="sub">Handcrafted soap wrapped in questions worth sitting with.</div>
+      <div class="body">Because the best conversations happen when your hands are busy and your guard is down.</div>
+      <a href="#founding" class="btn">Shop The Founding Set</a>
+    </div>
+  </section>
+
+  <!-- ORIGIN -->
+  <section class="origin">
+    <div class="inner">
+      <div class="sc" style="text-align:center;">How It Started</div>
+      <p>It began at a fête.</p>
+      <p>Lovely, buzzing conversation, and questions that kept the room's mind alive and thinking. By the end of the night, something was clear: the right question at the right moment changes a room.</p>
+      <p>Soap Notes is built on that idea. Every bar carries a scent worth remembering and a question worth returning to. You'll use it in the shower, at the sink, in those quiet in-between minutes. And sometimes, mid-lather: Eureka!</p>
+      <p style="font-weight:500;">That's the point.</p>
+      <div class="attribution">— [Her Name], Founder</div>
+    </div>
+  </section>
+
+  <!-- FOUNDING SET -->
+  <section id="founding">
+    <div class="inner-wide">
+      <div class="founding-intro">
+        <div class="sc">The Founding Set</div>
+        <h2>Four Bars, One Beginning</h2>
+        <p>Silk amino acids finish every bar, so the lather feels like the luxury it is. Beneath the fragrance, a question waits, sealed until you're ready to open it.</p>
+        <div class="holds-list">
+          <div><span class="holds-name">Agora</span><span>Holds the question that started it all.</span></div>
+          <div><span class="holds-name">Eros</span><span>Holds questions that wake the desire already living in you.</span></div>
+          <div><span class="holds-name">Kairos</span><span>Holds questions that lift you back into your own aliveness.</span></div>
+          <div><span class="holds-name">Logos</span><span>Holds the warm memory of what you mean to leave behind.</span></div>
+        </div>
+        <p style="font-style: italic;">Are you ready to open up?</p>
+      </div>
+
+      <div class="bar-grid">
+        <div class="bar-card">
+          <div class="bar-name">Agora</div>
+          <div class="bar-sub">The Origin Bar</div>
+          <div class="bar-desc">Agora speaks of the mind alive in a crowd, ideas trading hands in the open air. Verbena opens up sharp green, the scent of your favorite marketplace just waking up, stalls opening, voices chattering, the buzz that keeps you loitering in all of the familiar scents and smells. Clary sage follows, clear-headed, herbaceous, finding you in the middle of the noise. Cedarwood, the base note, holds your senses steady, reminding you that you're still the person you desire to be in the midst of it all.</div>
+          <div class="price-row">
+            <span class="price">$18</span>
+            <a href="#" class="btn-outline">Yes, I want to begin.</a>
+          </div>
+        </div>
+
+        <div class="bar-card">
+          <div class="bar-name">Eros</div>
+          <div class="bar-sub">No. 01 · Connection</div>
+          <div class="bar-desc">Eros speaks of love, of affirmation, of the kind of care that comes from the people in your life you don't have to perform for. Ylang ylang opens the bar soft and floral, easing into the room where you are loved and familiar before anything else happens. Rose geranium follows next, warm and rosy, holding its ground without asking for too much attention, just like home, where we are loved and nothing else is asked of us. Cedarwood, the base note, wraps its arms around you like your favorite blanket, or your beloved grandma.</div>
+          <div class="price-row">
+            <span class="price">$18</span>
+            <a href="#" class="btn-outline">Yes, I want love.</a>
+          </div>
+        </div>
+
+        <div class="bar-card">
+          <div class="bar-name">Kairos</div>
+          <div class="bar-sub">No. 02 · Adventure</div>
+          <div class="bar-desc">Kairos speaks of aliveness, the pull toward something new. Bergamot and grapefruit open together, the sharp zest of peeling citrus with your hands. Ginger follows warm and spiced, the kind of wake-up that doesn't need coffee. Cedarwood, the base note, grounds it all, steady footing for the kind of alive you want to be when you step out.</div>
+          <div class="price-row">
+            <span class="price">$18</span>
+            <a href="#" class="btn-outline">Yes, I want aliveness.</a>
+          </div>
+        </div>
+
+        <div class="bar-card">
+          <div class="bar-name">Logos</div>
+          <div class="bar-sub">No. 03 · Legacy</div>
+          <div class="bar-desc">Logos speaks of legacy, what stays after you've left the room. Cardamom opens warm and spiced, restrained rather than loud. Vetiver follows earthy and rooted, the smell of something that doesn't move. Cedarwood, the base note, holds it down and evokes the trace of you that stays long after you've left the room.</div>
+          <div class="price-row">
+            <span class="price">$18</span>
+            <a href="#" class="btn-outline">Yes, I want to be remembered.</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="trio">
+        <div class="sc">The Complete Trio</div>
+        <h3>Eros · Kairos · Logos</h3>
+        <p>One gift box. Recycled kraftboard drawer, cream-lined interior. Each card tucked loose inside, so you can take the questions with you.</p>
+        <a href="#" class="btn">$48 · Yes, I want it all.</a>
+        <div class="note">Agora sold separately.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOAP SERIES -->
+  <section class="soap-section">
+    <div class="inner">
+      <div class="sc">A Different Kind of Note</div>
+      <h2>The S.O.A.P. Series</h2>
+      <p>We've recrafted soap. Not simply for getting luxuriously clean, but as a way of starting your day, week, month or year with a soap note.</p>
+      <p>The fragrance notes are meant for your senses. The soap notes are meant for your spirit.</p>
+      <p style="font-size:17px; color:#c9bda3;">Every bar holds the four notes: Scripture, Observation, Application, Prayer. S.O.A.P. Which note is yours stays a secret until you open it.</p>
+      <div class="soap-cta">
+        <a href="#" class="btn">Shop the Series</a>
+      </div>
+      <div class="fine">Seven bars to an edition. Once they're gone, the next edition begins with new scripture, new questions, nothing repeated.</div>
+    </div>
+  </section>
+
+  <!-- BRAND PROMISE -->
+  <section>
+    <div class="inner-wide">
+      <div class="promise-grid">
+        <div>
+          <h3>Handmade</h3>
+          <p>Every bar is made in small batches. No two are identical. That's the point.</p>
+        </div>
+        <div>
+          <h3>Intentional</h3>
+          <p>The scents are chosen the way a playlist is chosen, for mood, for memory, for what they might unlock.</p>
+        </div>
+        <div>
+          <h3>Conversational</h3>
+          <p>The questions aren't decoration. They're the product. The soap just gives you something to hold while you think.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAGLINE BANNER -->
+  <div class="tagline-banner">
+    <p>Soap Notes. Lather in luxury. Keep the questions.</p>
+  </div>
+
+  <!-- EMAIL CAPTURE -->
+  <section class="email-capture">
+    <div class="inner">
+      <h2>Come back often. The questions change.</h2>
+      <p>Each new bar carries new questions. New scents. New reasons to pause.</p>
+      <div class="email-form">
+        <input type="email" placeholder="Your email address">
+        <button>Keep me posted</button>
+      </div>
+      <div class="email-fine">No spam. Just soap and questions.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Soap Notes · Handcrafted in small batches · [Location optional]</p>
+    <p>soapnotes.store · [Instagram handle] · [Email]</p>
+    <p class="tag">Questions worth keeping.</p>
+  </footer>
+
+</body>
+</html>
