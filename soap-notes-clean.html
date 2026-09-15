@@ -150,7 +150,11 @@
   .founding-quote { font-family: var(--sn-font-heading); font-style: italic; font-size: clamp(24px, 3vw, 32px); color: var(--sn-accent); margin: 42px 0 0; }
 
   /* — product cards — */
-  .cards { max-width: var(--sn-max); margin: 0 auto; padding: clamp(32px, 5vw, 56px) var(--sn-edge) 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(22px, 3vw, 36px); }
+  .cards { max-width: var(--sn-max); margin: 0 auto; padding: clamp(32px, 5vw, 56px) var(--sn-edge) 0; }
+  /* Agora is the origin piece, set apart from the Eros/Kairos/Logos trio below it. */
+  .agora-row { display: flex; }
+  .agora-row .card { width: 100%; max-width: 380px; }
+  .trio-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(22px, 3vw, 36px); margin-top: clamp(22px, 3vw, 36px); }
   .card { background: var(--sn-card); border: 1px solid var(--sn-rule); border-radius: var(--sn-radius); padding: 22px 24px; display: flex; flex-direction: column; }
   .card-figure { margin: 0 0 14px; }
   .card-stage { width: 100%; aspect-ratio: 4 / 3; min-height: 170px; }
@@ -263,7 +267,7 @@
     <div>
       <span class="kicker mb-16">How it started</span>
       <h2 class="origin-headline">It began at a fête.</h2>
-      <p class="origin-attribution">— [Her Name], Founder</p>
+      <p class="origin-attribution">— Frances, Founder</p>
     </div>
     <div>
       <p class="prose">Lovely, buzzing conversation, and questions that kept the room's mind alive and thinking. By the end of the night, something was clear: the right question at the right moment changes a room and the people in it.</p>
@@ -293,65 +297,69 @@
 </section>
 
 <section data-reveal class="cards">
-  <article class="card">
-    <figure class="plate card-figure">
-      <div class="card-stage">
-        <soap-bar-3d mode="bar" tone="#EFE6D2" label="Agora" sub="the origin bar" style="width:100%;height:100%"></soap-bar-3d>
+  <div class="agora-row">
+    <article class="card">
+      <figure class="plate card-figure">
+        <div class="card-stage">
+          <soap-bar-3d mode="bar" tone="#EFE6D2" label="Agora" sub="the origin bar" style="width:100%;height:100%"></soap-bar-3d>
+        </div>
+      </figure>
+      <h3 class="card-name">Agora</h3>
+      <p class="card-sub">The Origin Bar</p>
+      <p class="card-body">Agora speaks of the mind alive in a crowd, ideas trading hands in the open air. Verbena opens up sharp green, the scent of your favorite marketplace just waking up, stalls opening, voices chattering, the buzz that keeps you loitering in all of the familiar scents and smells. Clary sage follows, clear-headed, herbaceous, finding you in the middle of the noise. Cedarwood, the base note, holds your senses steady, reminding you that you're still the person you desire to be in the midst of it all.</p>
+      <div class="card-footer">
+        <span class="card-price">$18</span>
+        <button type="button" class="btn btn-card">Yes, I want to begin</button>
       </div>
-    </figure>
-    <h3 class="card-name">Agora</h3>
-    <p class="card-sub">The Origin Bar</p>
-    <p class="card-body">Agora speaks of the mind alive in a crowd, ideas trading hands in the open air. Verbena opens up sharp green, the scent of your favorite marketplace just waking up, stalls opening, voices chattering, the buzz that keeps you loitering in all of the familiar scents and smells. Clary sage follows, clear-headed, herbaceous, finding you in the middle of the noise. Cedarwood, the base note, holds your senses steady, reminding you that you're still the person you desire to be in the midst of it all.</p>
-    <div class="card-footer">
-      <span class="card-price">$18</span>
-      <button type="button" class="btn btn-card">Yes, I want to begin</button>
-    </div>
-  </article>
+    </article>
+  </div>
 
-  <article class="card">
-    <figure class="plate card-figure">
-      <div class="card-stage">
-        <soap-bar-3d mode="bar" tone="#E9D2CC" label="Eros" sub="no. 01 · connection" style="width:100%;height:100%"></soap-bar-3d>
+  <div class="trio-row">
+    <article class="card">
+      <figure class="plate card-figure">
+        <div class="card-stage">
+          <soap-bar-3d mode="bar" tone="#E9D2CC" label="Eros" sub="no. 01 · connection" style="width:100%;height:100%"></soap-bar-3d>
+        </div>
+      </figure>
+      <h3 class="card-name">Eros</h3>
+      <p class="card-sub">No. 01 · Connection</p>
+      <p class="card-body">Eros speaks of love, of affirmation, of the kind of care that comes from the people in your life you don't have to perform for. Ylang ylang opens the bar soft and floral, easing into the familiar room where you are loved before all else. Rose geranium follows next, the mid note, warm and rosy, holding its ground without asking for too much attention, just like home, where nothing else is asked of us. Cedarwood, the base note, wraps its arms around you like your favorite blanket, or your beloved grandma.</p>
+      <div class="card-footer">
+        <span class="card-price">$18</span>
+        <button type="button" class="btn btn-card">Yes, I want love</button>
       </div>
-    </figure>
-    <h3 class="card-name">Eros</h3>
-    <p class="card-sub">No. 01 · Connection</p>
-    <p class="card-body">Eros speaks of love, of affirmation, of the kind of care that comes from the people in your life you don't have to perform for. Ylang ylang opens the bar soft and floral, easing into the familiar room where you are loved before all else. Rose geranium follows next, the mid note, warm and rosy, holding its ground without asking for too much attention, just like home, where nothing else is asked of us. Cedarwood, the base note, wraps its arms around you like your favorite blanket, or your beloved grandma.</p>
-    <div class="card-footer">
-      <span class="card-price">$18</span>
-      <button type="button" class="btn btn-card">Yes, I want love</button>
-    </div>
-  </article>
+    </article>
 
-  <article class="card">
-    <figure class="plate card-figure">
-      <div class="card-stage">
-        <soap-bar-3d mode="bar" tone="#EFE2C6" label="Kairos" sub="no. 02 · adventure" style="width:100%;height:100%"></soap-bar-3d>
+    <article class="card">
+      <figure class="plate card-figure">
+        <div class="card-stage">
+          <soap-bar-3d mode="bar" tone="#EFE2C6" label="Kairos" sub="no. 02 · adventure" style="width:100%;height:100%"></soap-bar-3d>
+        </div>
+      </figure>
+      <h3 class="card-name">Kairos</h3>
+      <p class="card-sub">No. 02 · Adventure</p>
+      <p class="card-body">Kairos speaks of aliveness, the pull toward something new. Bergamot and grapefruit open together, the sharp zest of peeling citrus with your hands. Ginger follows warm and spiced, the kind of wake-up that doesn't need coffee. Cedarwood, the base note, grounds it all, steady footing for the kind of alive you want to be when you step out.</p>
+      <div class="card-footer">
+        <span class="card-price">$18</span>
+        <button type="button" class="btn btn-card">Yes, I want aliveness</button>
       </div>
-    </figure>
-    <h3 class="card-name">Kairos</h3>
-    <p class="card-sub">No. 02 · Adventure</p>
-    <p class="card-body">Kairos speaks of aliveness, the pull toward something new. Bergamot and grapefruit open together, the sharp zest of peeling citrus with your hands. Ginger follows warm and spiced, the kind of wake-up that doesn't need coffee. Cedarwood, the base note, grounds it all, steady footing for the kind of alive you want to be when you step out.</p>
-    <div class="card-footer">
-      <span class="card-price">$18</span>
-      <button type="button" class="btn btn-card">Yes, I want aliveness</button>
-    </div>
-  </article>
+    </article>
 
-  <article class="card">
-    <figure class="plate card-figure">
-      <div class="card-stage">
-        <soap-bar-3d mode="bar" tone="#E7DCC2" label="Logos" sub="no. 03 · legacy" style="width:100%;height:100%"></soap-bar-3d>
+    <article class="card">
+      <figure class="plate card-figure">
+        <div class="card-stage">
+          <soap-bar-3d mode="bar" tone="#E7DCC2" label="Logos" sub="no. 03 · legacy" style="width:100%;height:100%"></soap-bar-3d>
+        </div>
+      </figure>
+      <h3 class="card-name">Logos</h3>
+      <p class="card-sub">No. 03 · Legacy</p>
+      <p class="card-body">Logos speaks of legacy, what stays after you've left the room. Cardamom opens warm and spiced, restrained rather than loud. Vetiver follows earthy and rooted, the smell of something that doesn't move. Cedarwood, the base note, holds it down and evokes the trace of you that stays long after you've left the room.</p>
+      <div class="card-footer">
+        <span class="card-price">$18</span>
+        <button type="button" class="btn btn-card">Yes, I want to be remembered</button>
       </div>
-    </figure>
-    <h3 class="card-name">Logos</h3>
-    <p class="card-sub">No. 03 · Legacy</p>
-    <p class="card-body">Logos speaks of legacy, what stays after you've left the room. Cardamom opens warm and spiced, restrained rather than loud. Vetiver follows earthy and rooted, the smell of something that doesn't move. Cedarwood, the base note, holds it down and evokes the trace of you that stays long after you've left the room.</p>
-    <div class="card-footer">
-      <span class="card-price">$18</span>
-      <button type="button" class="btn btn-card">Yes, I want to be remembered</button>
-    </div>
-  </article>
+    </article>
+  </div>
 </section>
 
 <section data-reveal class="trio-section">
@@ -407,7 +415,7 @@
   <div class="props-grid">
     <div class="prop">
       <h3 class="prop-title">Handmade.</h3>
-      <p class="prop-body">Small custom batch production. No two bars are identical.</p>
+      <p class="prop-body">Small custom batch production, grounded in an apothecary background — Frances, our founder, is a pharmacist by trade. No two bars are identical.</p>
     </div>
     <div class="prop">
       <h3 class="prop-title">Intentional.</h3>

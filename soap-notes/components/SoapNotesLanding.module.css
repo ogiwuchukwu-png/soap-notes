@@ -226,9 +226,25 @@
   max-width: var(--sn-max);
   margin: 0 auto;
   padding: clamp(32px, 5vw, 56px) var(--sn-edge) 0;
+}
+
+/* Agora is the origin piece, set apart from the Eros/Kairos/Logos trio below
+   it — capped to roughly one column's width instead of stretching full-bleed
+   as a lone grid item would. */
+.agoraRow {
+  display: flex;
+}
+
+.agoraRow .card {
+  width: 100%;
+  max-width: 380px;
+}
+
+.trioRow {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: clamp(22px, 3vw, 36px);
+  margin-top: clamp(22px, 3vw, 36px);
 }
 
 .card {

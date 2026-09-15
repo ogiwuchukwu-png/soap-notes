@@ -52,7 +52,10 @@ const SOAP_LETTERS = [
 ];
 
 const VALUE_PROPS = [
-  { title: "Handmade.", body: "Small custom batch production. No two bars are identical." },
+  {
+    title: "Handmade.",
+    body: "Small custom batch production, grounded in an apothecary background — Frances, our founder, is a pharmacist by trade. No two bars are identical.",
+  },
   {
     title: "Intentional.",
     body: "The scents and notes are chosen the way you might choose your favorite playlist. For mood, for nostalgic memory and all it unlocks within.",
@@ -62,6 +65,29 @@ const VALUE_PROPS = [
     body: "The questions are not decorative. They are integral to our products. The soap just gives you something to hold while you think.",
   },
 ];
+
+type ProductCardData = (typeof PRODUCT_CARDS)[number];
+
+function ProductCard({ card }: { card: ProductCardData }) {
+  return (
+    <article className={styles.card}>
+      <figure className={`${primitives.plate} ${styles.cardFigure}`}>
+        <div className={styles.cardStage}>
+          <SoapBar3D mode="bar" tone={card.tone} label={card.name} sub={card.sub} />
+        </div>
+      </figure>
+      <h3 className={styles.cardName}>{card.name}</h3>
+      <p className={styles.cardSub}>{card.sub}</p>
+      <p className={styles.cardBody}>{card.copy}</p>
+      <div className={styles.cardFooter}>
+        <span className={styles.cardPrice}>$18</span>
+        <button type="button" className={`${primitives.btn} ${primitives.btnCard}`}>
+          {card.cta}
+        </button>
+      </div>
+    </article>
+  );
+}
 
 export default function SoapNotesLanding() {
   return (
@@ -112,7 +138,7 @@ export default function SoapNotesLanding() {
           <div>
             <span className={`${primitives.kicker} ${styles.mb16}`}>How it started</span>
             <h2 className={styles.originHeadline}>It began at a fête.</h2>
-            <p className={styles.originAttribution}>— [Her Name], Founder</p>
+            <p className={styles.originAttribution}>— Frances, Founder</p>
           </div>
           <div>
             <p className={styles.prose}>
@@ -155,24 +181,14 @@ export default function SoapNotesLanding() {
       </Reveal>
 
       <Reveal className={styles.cardsSection}>
-        {PRODUCT_CARDS.map((card) => (
-          <article key={card.name} className={styles.card}>
-            <figure className={`${primitives.plate} ${styles.cardFigure}`}>
-              <div className={styles.cardStage}>
-                <SoapBar3D mode="bar" tone={card.tone} label={card.name} sub={card.sub} />
-              </div>
-            </figure>
-            <h3 className={styles.cardName}>{card.name}</h3>
-            <p className={styles.cardSub}>{card.sub}</p>
-            <p className={styles.cardBody}>{card.copy}</p>
-            <div className={styles.cardFooter}>
-              <span className={styles.cardPrice}>$18</span>
-              <button type="button" className={`${primitives.btn} ${primitives.btnCard}`}>
-                {card.cta}
-              </button>
-            </div>
-          </article>
-        ))}
+        <div className={styles.agoraRow}>
+          <ProductCard card={PRODUCT_CARDS[0]} />
+        </div>
+        <div className={styles.trioRow}>
+          {PRODUCT_CARDS.slice(1).map((card) => (
+            <ProductCard key={card.name} card={card} />
+          ))}
+        </div>
       </Reveal>
 
       <Reveal className={styles.trioSection}>
