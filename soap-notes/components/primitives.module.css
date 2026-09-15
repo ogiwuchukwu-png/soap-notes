@@ -23,6 +23,11 @@
   background: rgba(110, 42, 42, 0.09);
 }
 
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .btn:active {
   border-color: var(--sn-accent-pressed);
   color: var(--sn-accent-pressed);
@@ -46,6 +51,12 @@
 .btnCard {
   padding: 11px 18px;
   font-size: 12px;
+}
+
+.btnBlock {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .link {

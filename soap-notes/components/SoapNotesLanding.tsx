@@ -3,6 +3,10 @@ import Reveal from "./Reveal";
 import HeroSentinel from "./HeroSentinel";
 import StickyBuyBar from "./StickyBuyBar";
 import SoapBar3D from "./SoapBar3D";
+import AddToCartButton from "./AddToCartButton";
+import CartToggle from "./CartToggle";
+import CartPanel from "./CartPanel";
+import SubscribeForm from "./SubscribeForm";
 import primitives from "./primitives.module.css";
 import styles from "./SoapNotesLanding.module.css";
 
@@ -15,6 +19,7 @@ const FOUNDING_BARS = [
 
 const PRODUCT_CARDS = [
   {
+    sku: "agora",
     name: "Agora",
     sub: "The Origin Bar",
     tone: "#EFE6D2",
@@ -22,6 +27,7 @@ const PRODUCT_CARDS = [
     cta: "Yes, I want to begin",
   },
   {
+    sku: "eros",
     name: "Eros",
     sub: "No. 01 · Connection",
     tone: "#E9D2CC",
@@ -29,6 +35,7 @@ const PRODUCT_CARDS = [
     cta: "Yes, I want love",
   },
   {
+    sku: "kairos",
     name: "Kairos",
     sub: "No. 02 · Adventure",
     tone: "#EFE2C6",
@@ -36,13 +43,14 @@ const PRODUCT_CARDS = [
     cta: "Yes, I want aliveness",
   },
   {
+    sku: "logos",
     name: "Logos",
     sub: "No. 03 · Legacy",
     tone: "#E7DCC2",
     copy: "Logos speaks of legacy, what stays after you've left the room. Cardamom opens warm and spiced, restrained rather than loud. Vetiver follows earthy and rooted, the smell of something that doesn't move. Cedarwood, the base note, holds it down and evokes the trace of you that stays long after you've left the room.",
     cta: "Yes, I want to be remembered",
   },
-];
+] as const;
 
 const SOAP_LETTERS = [
   { letter: "S", label: "Scripture" },
@@ -81,9 +89,9 @@ function ProductCard({ card }: { card: ProductCardData }) {
       <p className={styles.cardBody}>{card.copy}</p>
       <div className={styles.cardFooter}>
         <span className={styles.cardPrice}>$18</span>
-        <button type="button" className={`${primitives.btn} ${primitives.btnCard}`}>
+        <AddToCartButton sku={card.sku} className={`${primitives.btn} ${primitives.btnCard}`}>
           {card.cta}
-        </button>
+        </AddToCartButton>
       </div>
     </article>
   );
@@ -103,6 +111,7 @@ export default function SoapNotesLanding() {
         <a href="#series" className={primitives.link}>
           The S.O.A.P. series
         </a>
+        <CartToggle />
       </nav>
 
       <section className={styles.hero}>
@@ -202,9 +211,9 @@ export default function SoapNotesLanding() {
             </p>
             <div className={styles.trioPriceRow}>
               <span className={styles.trioPrice}>$48</span>
-              <button type="button" className={primitives.btn}>
+              <AddToCartButton sku="trio" className={primitives.btn}>
                 Yes, I want it all
-              </button>
+              </AddToCartButton>
             </div>
             <p className={styles.trioNote}>
               Agora sold separately — it&rsquo;s the origin piece, not part of the boxed trio.
@@ -291,18 +300,7 @@ export default function SoapNotesLanding() {
             </p>
           </div>
           <div>
-            <div className={styles.emailForm}>
-              <input
-                className={`${primitives.input} ${styles.emailInput}`}
-                type="email"
-                placeholder="Your email address"
-                aria-label="Your email address"
-              />
-              <button type="button" className={`${primitives.btn} ${styles.emailCta}`}>
-                Keep me posted
-              </button>
-            </div>
-            <p className={styles.emailNote}>No spam. Just soap notes.</p>
+            <SubscribeForm />
           </div>
         </div>
       </Reveal>
@@ -314,6 +312,7 @@ export default function SoapNotesLanding() {
       </footer>
 
       <StickyBuyBar />
+      <CartPanel />
     </div>
   );
 }
