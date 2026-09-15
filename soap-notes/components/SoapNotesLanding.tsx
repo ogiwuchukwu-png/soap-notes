@@ -309,7 +309,7 @@ export default function SoapNotesLanding() {
 
       <footer className={styles.footer}>
         <p className={styles.footerText}>Soap Notes · Handcrafted in small batches</p>
-        <p className={styles.footerText}>soapnotes.store · [Instagram handle] · hello@soapnotes.com</p>
+        <p className={styles.footerText}>soapnotes.store · @thesoapnotes_store · hello@soapnotes.com</p>
         <p className={styles.footerTagline}>Lather in luxury. Keep the questions.</p>
       </footer>
 
