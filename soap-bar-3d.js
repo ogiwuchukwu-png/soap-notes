@@ -14,13 +14,13 @@
 //   tone   soap body color (hex)
 //   label  bar name stamped on the wrapper
 //   sub    small line under the name on the wrapper
-//   band   kraft wrapper color (default #D9CBA3)
+//   band   kraft wrapper color (default #F6F2E8)
 //   accent stamp ink (default #7C3131)
 //   spin   "0" to hold still (default: slow oscillation, unless the OS asks for reduced motion)
 import * as THREE from "three";
 
-const KRAFT = "#D9CBA3";
-const CREAM = "#EDE4CC";
+const KRAFT = "#F6F2E8";
+const CREAM = "#FAF7EF";
 const OXBLOOD = "#7C3131";
 const MAX_EDGE = 1400;
 
