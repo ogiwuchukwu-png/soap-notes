@@ -15,13 +15,13 @@
 //   label  bar name stamped on the wrapper
 //   sub    small line under the name on the wrapper
 //   band   kraft wrapper color (default #D9CBA3)
-//   accent stamp ink (default #6E2A2A)
+//   accent stamp ink (default #7C3131)
 //   spin   "0" to hold still (default: slow oscillation, unless the OS asks for reduced motion)
 import * as THREE from "three";
 
 const KRAFT = "#D9CBA3";
 const CREAM = "#EDE4CC";
-const OXBLOOD = "#6E2A2A";
+const OXBLOOD = "#7C3131";
 const MAX_EDGE = 1400;
 
 const live = new Set();
