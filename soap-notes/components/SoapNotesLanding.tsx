@@ -89,7 +89,10 @@ function ProductCard({ card }: { card: ProductCardData }) {
       <p className={styles.cardBody}>{card.copy}</p>
       <div className={styles.cardFooter}>
         <span className={styles.cardPrice}>$18</span>
-        <AddToCartButton sku={card.sku} className={`${primitives.btn} ${primitives.btnCard}`}>
+        <AddToCartButton
+          sku={card.sku}
+          className={`${primitives.btn} ${primitives.btnLight} ${primitives.btnCard}`}
+        >
           {card.cta}
         </AddToCartButton>
       </div>

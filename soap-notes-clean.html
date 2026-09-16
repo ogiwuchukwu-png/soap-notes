@@ -155,14 +155,16 @@
   .agora-row { display: flex; }
   .agora-row .card { width: 100%; max-width: 380px; }
   .trio-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(22px, 3vw, 36px); margin-top: clamp(22px, 3vw, 36px); }
-  .card { background: var(--sn-card); border: 1px solid var(--sn-rule); border-radius: var(--sn-radius); padding: 22px 24px; display: flex; flex-direction: column; }
+  /* Dark cards — reuse the same gold/cream-on-dark roles the S.O.A.P. Series
+     band already established, so this reads as the same system. */
+  .card { background: var(--sn-ink); border-radius: var(--sn-radius); padding: 22px 24px; display: flex; flex-direction: column; }
   .card-figure { margin: 0 0 14px; }
   .card-stage { width: 100%; aspect-ratio: 4 / 3; min-height: 170px; }
-  .card-name { font-family: var(--sn-font-heading); font-weight: 500; font-size: 28px; line-height: 1.08; color: var(--sn-accent); }
-  .card-sub { font-size: 11.5px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sn-soft); margin: 9px 0 18px; }
-  .card-body { font-size: 14.5px; line-height: 1.7; color: var(--sn-soft); text-align: justify; hyphens: auto; }
+  .card-name { font-family: var(--sn-font-heading); font-weight: 500; font-size: 28px; line-height: 1.08; color: var(--sn-cream); }
+  .card-sub { font-size: 11.5px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sn-gold); margin: 9px 0 18px; }
+  .card-body { font-size: 14.5px; line-height: 1.7; color: var(--sn-cream-on-dark); text-align: justify; hyphens: auto; }
   .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: auto; padding-top: 22px; }
-  .card-price { font-family: var(--sn-font-heading); font-size: 19px; font-feature-settings: 'tnum' 1; color: var(--sn-ink); }
+  .card-price { font-family: var(--sn-font-heading); font-size: 19px; font-feature-settings: 'tnum' 1; color: var(--sn-cream); }
 
   /* — trio box — */
   .trio-section { max-width: var(--sn-max); margin: 0 auto; padding: clamp(28px, 4vw, 44px) var(--sn-edge) clamp(52px, 7vw, 92px); }
@@ -309,7 +311,7 @@
       <p class="card-body">Agora speaks of the mind alive in a crowd, ideas trading hands in the open air. Verbena opens up sharp green, the scent of your favorite marketplace just waking up, stalls opening, voices chattering, the buzz that keeps you loitering in all of the familiar scents and smells. Clary sage follows, clear-headed, herbaceous, finding you in the middle of the noise. Cedarwood, the base note, holds your senses steady, reminding you that you're still the person you desire to be in the midst of it all.</p>
       <div class="card-footer">
         <span class="card-price">$18</span>
-        <button type="button" class="btn btn-card">Yes, I want to begin</button>
+        <button type="button" class="btn btn-light btn-card">Yes, I want to begin</button>
       </div>
     </article>
   </div>
@@ -326,7 +328,7 @@
       <p class="card-body">Eros speaks of love, of affirmation, of the kind of care that comes from the people in your life you don't have to perform for. Ylang ylang opens the bar soft and floral, easing into the familiar room where you are loved before all else. Rose geranium follows next, the mid note, warm and rosy, holding its ground without asking for too much attention, just like home, where nothing else is asked of us. Cedarwood, the base note, wraps its arms around you like your favorite blanket, or your beloved grandma.</p>
       <div class="card-footer">
         <span class="card-price">$18</span>
-        <button type="button" class="btn btn-card">Yes, I want love</button>
+        <button type="button" class="btn btn-light btn-card">Yes, I want love</button>
       </div>
     </article>
 
@@ -341,7 +343,7 @@
       <p class="card-body">Kairos speaks of aliveness, the pull toward something new. Bergamot and grapefruit open together, the sharp zest of peeling citrus with your hands. Ginger follows warm and spiced, the kind of wake-up that doesn't need coffee. Cedarwood, the base note, grounds it all, steady footing for the kind of alive you want to be when you step out.</p>
       <div class="card-footer">
         <span class="card-price">$18</span>
-        <button type="button" class="btn btn-card">Yes, I want aliveness</button>
+        <button type="button" class="btn btn-light btn-card">Yes, I want aliveness</button>
       </div>
     </article>
 
@@ -356,7 +358,7 @@
       <p class="card-body">Logos speaks of legacy, what stays after you've left the room. Cardamom opens warm and spiced, restrained rather than loud. Vetiver follows earthy and rooted, the smell of something that doesn't move. Cedarwood, the base note, holds it down and evokes the trace of you that stays long after you've left the room.</p>
       <div class="card-footer">
         <span class="card-price">$18</span>
-        <button type="button" class="btn btn-card">Yes, I want to be remembered</button>
+        <button type="button" class="btn btn-light btn-card">Yes, I want to be remembered</button>
       </div>
     </article>
   </div>
