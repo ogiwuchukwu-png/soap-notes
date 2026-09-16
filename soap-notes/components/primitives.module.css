@@ -59,12 +59,14 @@
   text-align: center;
 }
 
+/* Only used in the nav, which sits on --sn-ink — colors follow the same
+   on-dark roles as the S.O.A.P. Series band and the dark product cards. */
 .link {
   font-family: var(--sn-font-body);
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--sn-soft);
+  color: var(--sn-cream-on-dark);
   text-decoration: none;
   padding-bottom: 2px;
   border-bottom: 1px solid transparent;
@@ -74,8 +76,8 @@
 }
 
 .link:hover {
-  color: var(--sn-accent);
-  border-bottom-color: var(--sn-accent);
+  color: var(--sn-gold);
+  border-bottom-color: var(--sn-gold);
 }
 
 .kicker {

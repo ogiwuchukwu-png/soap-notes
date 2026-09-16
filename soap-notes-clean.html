@@ -87,12 +87,14 @@
   .btn-light { color: var(--sn-cream); border-color: rgba(237, 228, 204, 0.55); }
   .btn-light:hover { background: rgba(237, 228, 204, 0.12); border-color: var(--sn-cream); }
   .btn-card { padding: 11px 18px; font-size: 12px; }
+  /* Only used in the nav, which sits on --sn-ink — same on-dark roles as the
+     S.O.A.P. Series band and the dark product cards. */
   .link {
     font-family: var(--sn-font-body); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--sn-soft); text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent;
+    color: var(--sn-cream-on-dark); text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent;
     transition: color .2s ease, border-color .2s ease;
   }
-  .link:hover { color: var(--sn-accent); border-bottom-color: var(--sn-accent); }
+  .link:hover { color: var(--sn-gold); border-bottom-color: var(--sn-gold); }
   .kicker {
     display: block; font-family: var(--sn-font-body); font-size: 12px; font-weight: 500;
     letter-spacing: 0.15em; text-transform: uppercase; color: var(--sn-accent);
@@ -115,8 +117,8 @@
   .mb-32 { margin-bottom: 32px; }
 
   /* — nav — */
-  .nav { display: flex; align-items: baseline; gap: 26px; padding: 22px var(--sn-edge); border-bottom: 1px solid var(--sn-rule); flex-wrap: wrap; }
-  .nav-brand { font-family: var(--sn-font-heading); font-size: 19px; font-weight: 500; letter-spacing: 0.01em; color: var(--sn-accent); margin-right: auto; }
+  .nav { display: flex; align-items: baseline; gap: 26px; padding: 22px var(--sn-edge); background: var(--sn-ink); border-bottom: 1px solid rgba(250, 247, 239, 0.16); flex-wrap: wrap; }
+  .nav-brand { font-family: var(--sn-font-heading); font-size: 19px; font-weight: 500; letter-spacing: 0.01em; color: var(--sn-cream); margin-right: auto; }
 
   /* — hero — */
   .hero {

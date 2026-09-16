@@ -22,7 +22,8 @@
   align-items: baseline;
   gap: 26px;
   padding: 22px var(--sn-edge);
-  border-bottom: 1px solid var(--sn-rule);
+  background: var(--sn-ink);
+  border-bottom: 1px solid rgba(250, 247, 239, 0.16);
   flex-wrap: wrap;
 }
 
@@ -31,7 +32,7 @@
   font-size: 19px;
   font-weight: 500;
   letter-spacing: 0.01em;
-  color: var(--sn-accent);
+  color: var(--sn-cream);
   margin-right: auto;
 }
 

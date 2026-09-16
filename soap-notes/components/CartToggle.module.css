@@ -1,9 +1,11 @@
+/* Sits in the nav, which is on --sn-ink — same on-dark roles as .link in
+   primitives.module.css. */
 .toggle {
   font-family: var(--sn-font-body);
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--sn-soft);
+  color: var(--sn-cream-on-dark);
   background: transparent;
   border: none;
   padding: 0 0 2px;
@@ -15,8 +17,8 @@
 }
 
 .toggle:hover {
-  color: var(--sn-accent);
-  border-bottom-color: var(--sn-accent);
+  color: var(--sn-gold);
+  border-bottom-color: var(--sn-gold);
 }
 
 .count {
